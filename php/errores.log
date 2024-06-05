@@ -1,0 +1,100 @@
+[21-Apr-2024 21:06:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' in /var/www/html/php/TFG/php/conexion.php:3
+Stack trace:
+#0 /var/www/html/php/TFG/php/conexion.php(3): mysqli->__construct()
+#1 /var/www/html/php/TFG/php/registro.php(6): include('...')
+#2 {main}
+  thrown in /var/www/html/php/TFG/php/conexion.php on line 3
+[21-Apr-2024 21:09:52 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:38 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:39 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:39 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:39 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:40 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:40 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:40 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:40 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:40 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:40 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:41 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:41 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:41 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:41 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:41 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:41 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:42 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:42 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:12:42 UTC] PHP Parse error:  syntax error, unexpected variable "$clave" in /var/www/html/php/TFG/php/conexion.php on line 4
+[21-Apr-2024 21:13:00 UTC] PHP Warning:  Undefined variable $servername in /var/www/html/php/TFG/php/registro.php on line 10
+[21-Apr-2024 21:13:00 UTC] PHP Warning:  Undefined variable $username in /var/www/html/php/TFG/php/registro.php on line 10
+[21-Apr-2024 21:13:00 UTC] PHP Warning:  Undefined variable $password in /var/www/html/php/TFG/php/registro.php on line 10
+[21-Apr-2024 21:13:00 UTC] PHP Warning:  Undefined variable $dbname in /var/www/html/php/TFG/php/registro.php on line 10
+[21-Apr-2024 21:13:00 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in /var/www/html/php/TFG/php/registro.php:10
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(10): mysqli->__construct()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 10
+[21-Apr-2024 21:14:35 UTC] PHP Warning:  Undefined variable $conn in /var/www/html/php/TFG/php/registro.php on line 13
+[21-Apr-2024 21:14:35 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /var/www/html/php/TFG/php/registro.php on line 13
+[21-Apr-2024 21:15:43 UTC] PHP Warning:  Undefined variable $conn in /var/www/html/php/TFG/php/registro.php on line 14
+[21-Apr-2024 21:15:43 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /var/www/html/php/TFG/php/registro.php on line 14
+[21-Apr-2024 21:16:41 UTC] PHP Warning:  Undefined variable $conexion in /var/www/html/php/TFG/php/conexion.php on line 16
+[21-Apr-2024 21:29:35 UTC] PHP Warning:  Undefined variable $conexion in /var/www/html/php/TFG/php/conexion.php on line 16
+[21-Apr-2024 21:30:22 UTC] PHP Warning:  Undefined variable $con in /var/www/html/php/TFG/php/conexion.php on line 12
+[21-Apr-2024 21:30:22 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /var/www/html/php/TFG/php/conexion.php on line 12
+[21-Apr-2024 21:31:52 UTC] PHP Warning:  Undefined array key "fechaNacimientoUsuario" in /var/www/html/php/TFG/php/registro.php on line 19
+[21-Apr-2024 21:31:52 UTC] PHP Warning:  Undefined array key "contraseña" in /var/www/html/php/TFG/php/registro.php on line 21
+[21-Apr-2024 21:31:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'BD_FitFood.registro_usuarios' doesn't exist in /var/www/html/php/TFG/php/registro.php:28
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(28): mysqli->prepare()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 28
+[21-Apr-2024 21:37:31 UTC] PHP Warning:  Undefined array key "fechaNacimientoUsuario" in /var/www/html/php/TFG/php/registro.php on line 19
+[21-Apr-2024 21:37:31 UTC] PHP Warning:  Undefined array key "contraseña" in /var/www/html/php/TFG/php/registro.php on line 21
+[21-Apr-2024 21:37:31 UTC] PHP Deprecated:  password_hash(): Passing null to parameter #1 ($password) of type string is deprecated in /var/www/html/php/TFG/php/registro.php on line 23
+[21-Apr-2024 21:37:31 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'BD_FitFood.registro_usuarios' doesn't exist in /var/www/html/php/TFG/php/registro.php:30
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 30
+[21-Apr-2024 21:38:24 UTC] PHP Warning:  Undefined array key "contraseña" in /var/www/html/php/TFG/php/registro.php on line 21
+[21-Apr-2024 21:38:24 UTC] PHP Deprecated:  password_hash(): Passing null to parameter #1 ($password) of type string is deprecated in /var/www/html/php/TFG/php/registro.php on line 23
+[21-Apr-2024 21:38:24 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'BD_FitFood.registro_usuarios' doesn't exist in /var/www/html/php/TFG/php/registro.php:30
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 30
+[21-Apr-2024 21:39:01 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'BD_FitFood.registro_usuarios' doesn't exist in /var/www/html/php/TFG/php/registro.php:30
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 30
+[21-Apr-2024 21:41:02 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'BD_FitFood.registro_usuarios' doesn't exist in /var/www/html/php/TFG/php/registro.php:30
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 30
+[21-Apr-2024 21:41:09 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'BD_FitFood.registro_usuarios' doesn't exist in /var/www/html/php/TFG/php/registro.php:30
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 30
+[21-Apr-2024 21:42:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'fechaNacimiento' in 'field list' in /var/www/html/php/TFG/php/registro.php:30
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 30
+[21-Apr-2024 21:43:23 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Field 'idUsuario' doesn't have a default value in /var/www/html/php/TFG/php/registro.php:34
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(34): mysqli_stmt->execute()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 34
+[21-Apr-2024 21:44:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Field 'idUsuario' doesn't have a default value in /var/www/html/php/TFG/php/registro.php:34
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(34): mysqli_stmt->execute()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 34
+[21-Apr-2024 22:20:18 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Field 'imagenUsuario' doesn't have a default value in /var/www/html/php/TFG/php/registro.php:34
+Stack trace:
+#0 /var/www/html/php/TFG/php/registro.php(34): mysqli_stmt->execute()
+#1 {main}
+  thrown in /var/www/html/php/TFG/php/registro.php on line 34

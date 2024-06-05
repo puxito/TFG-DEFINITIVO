@@ -1,0 +1,134 @@
+html, body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #94e7ff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: #006691;
+  border-bottom: 1px solid black;
+  display: flex;
+  top: 0;
+  position: fixed;
+  z-index: 1000; 
+}
+
+header h1 {
+  margin: 0;
+  color: white;
+}
+
+.panel {
+  margin: auto;
+}
+
+.perfil {
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.363);
+  border-radius: 4px;
+  width: 200px;
+  height: 75px;
+  display: flex;
+}
+
+.perfil #fotoperfil {
+  margin-top: 7px;
+  margin-left: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: solid 1px black;
+}
+
+header img {
+  padding: 10px;
+  height: 100px;
+  border-radius: 12px;
+}
+
+section {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #94e7ff;
+}
+
+article {
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 100px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+
+header .ini {
+  text-decoration: none;
+  color: white;
+  padding-left: 50px;
+  padding-top: 25px;
+}
+article > div > input{
+  float: right;
+}
+
+.crud {
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 100px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.perfil {
+  margin: 10px 10px 10px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.363);
+  border-radius: 4px;
+  width: 200px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+}
+
+.fotoperfil {
+  margin-left: 10px;
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: solid 1px black;
+}
+
+.nombre {
+  padding-left: 15px;
+  color: white;
+  font-size: 13px;
+}
+
+table {
+  font-size: 13px;
+}
+
+#reload {
+  border-radius: 15px;
+  padding-left: 8.5px;
+}
+
+#reload img {
+  width: 20px;
+  height: 20px;
+}
