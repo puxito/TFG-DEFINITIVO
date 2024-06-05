@@ -2,8 +2,8 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #94e7ff;
-    padding-top: 150px; /* Ajustar para el encabezado */
-    padding-bottom: 50px; /* Ajustar para el pie de página */
+    padding-top: 150px; 
+    padding-bottom: 50px; 
 }
 
 header {
@@ -65,7 +65,7 @@ header img {
 }
 
 .container img {
-    width: 100%; /* Ajustar tamaño de las imágenes */
+    width: 100%;
     height: auto;
 }
 .container form img {

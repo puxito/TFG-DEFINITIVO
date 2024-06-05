@@ -1,6 +1,5 @@
 <?php
 // ARCHIVOS
-
 require("errores.php");
 require("funciones.php");
 
@@ -49,82 +48,98 @@ if (isset($_POST['registrarse'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link rel="icon" href="media/logo.png" type="image/x-icon" />
+    <title>Registro | FitFood</title>
+    <link rel="icon" href="../media/logo.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Enlace al archivo CSS externo -->
-    <link rel="stylesheet" href="../estilos/registrostyle.css">
-
+    <style>
+        body {
+            background-color: #94e7ff;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <div>
-            <a href="../index.php"><img src="../media/logoancho.png"></a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #006691;">
+        <div class="container-fluid">
+            <a href="../index.php">
+                <img class="rounded" src="../media/logoancho.png" alt="logo" width="155">
+            </a>
         </div>
-    </header>
-    <div class="bg-light w-25 p-3 mt-1 mx-auto rounded shadow">
-        <form action="registro.php" method="POST">
-            <div class="center-content">
-                <h2>Registro</h2>
-                <img src="../media/logo.png" alt="Logo de la página web">
+    </nav>
+    <br>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Registro</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="registro.php" method="POST">
+                            <div class="mb-3">
+                                <label for="nombreUsuario" class="form-label">Nombre</label>
+                                <input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" placeholder="Ingrese su nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellidosUsuario" class="form-label">Apellidos</label>
+                                <input type="text" id="apellidosUsuario" name="apellidosUsuario" class="form-control" placeholder="Ingrese sus apellidos" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="correoElectronicoUsuario" class="form-label">Correo electrónico</label>
+                                <input type="email" id="correoElectronicoUsuario" name="correoElectronicoUsuario" class="form-control" placeholder="Ingrese su correo electrónico" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contraseña" class="form-label">Contraseña</label>
+                                <input type="password" id="contraseña" name="contraseña" class="form-control" placeholder="Ingrese su contraseña" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirm_password" class="form-label">Confirmar contraseña</label>
+                                <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirme su contraseña" required>
+                                <div id="password_error" style="color: red;"></div> <!-- Mensaje de error -->
+                            </div>
+                            <div class="d-grid">
+                                <button name="registrarse" type="submit" class="btn btn-primary">Registrarse</button>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <a href="login.php" class="btn btn-link">Inicia sesión aquí</a>
+                            </div>
+                        </form>
+                        <?php echo $mensaje; ?>
+                    </div>
+                </div>
             </div>
-            <div class="input-container">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ingrese su nombre" required>
-            </div>
-            <div class="input-container">
-                <label for="apellidos">Apellidos</label>
-                <input type="text" id="apellidosUsuario" name="apellidosUsuario" placeholder="Ingrese sus apellidos" required>
-            </div>
-            <div class="input-container">
-                <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-            </div>
-            <div class="input-container">
-                <label for="correo">Correo electrónico</label>
-                <input type="email" id="correoElectronicoUsuario" name="correoElectronicoUsuario" placeholder="Ingrese su correo electrónico" required>
-            </div>
-            <div class="input-container">
-                <label for="contraseña">Contraseña</label>
-                <input type="password" id="contraseña" name="contraseña" placeholder="Ingrese su contraseña" required>
-            </div>
-            <div class="input-container">
-                <label for="confirm_password">Confirmar contraseña</label>
-                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme su contraseña" required>
-                <div id="password_error" style="color: red;"></div> <!-- Mensaje de error -->
-            </div>
-            <button name="registrarse" type="submit" class="btn btn-primary">Registrarse</button>
-            <br>
-        </form>
-        <p class="cuenta">¿Ya tienes una cuenta? <a href="login.php">Inicia sesión aquí</a></p>
+        </div>
     </div>
-    </div>
-    <footer>
-        <p>&copy; 2024 FitFood. Todos los derechos reservados.</p>
+    <footer class="footer bg-dark text-light p-2 fixed-bottom">
+        <div class="container text-center">
+            <p>&copy; 2024 FitFood. Todos los derechos reservados.</p>
+        </div>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var passwordInput = document.getElementById("contraseña");
+            var confirmPasswordInput = document.getElementById("confirm_password");
+            var passwordError = document.getElementById("password_error");
+
+            function validatePassword() {
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    passwordError.textContent = "Las contraseñas no coinciden";
+                } else {
+                    passwordError.textContent = "";
+                }
+            }
+
+            // Validar cuando se escriba en los campos de contraseña
+            passwordInput.addEventListener("input", validatePassword);
+            confirmPasswordInput.addEventListener("input", validatePassword);
+        });
+    </script>
 </body>
 
 </html>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var passwordInput = document.getElementById("password");
-        var confirmPasswordInput = document.getElementById("confirm_password");
-        var passwordError = document.getElementById("password_error");
-
-        function validatePassword() {
-            if (passwordInput.value !== confirmPasswordInput.value) {
-                passwordError.textContent = "Las contraseñas no coinciden";
-            } else {
-                passwordError.textContent = "";
-            }
-        }
-
-        // Validar cuando se escriba en los campos de contraseña
-        passwordInput.addEventListener("input", validatePassword);
-        confirmPasswordInput.addEventListener("input", validatePassword);
-    });
-</script>

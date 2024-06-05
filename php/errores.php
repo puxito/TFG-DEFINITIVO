@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 1); // Muestra los errores en la pantalla
-ini_set('display_startup_errors', 1); // Muestra los errores de inicio
-error_reporting(E_ALL); // Reporta todos los errores de PHP
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL); 
 
 
 ini_set('error_log', 'errores.log');

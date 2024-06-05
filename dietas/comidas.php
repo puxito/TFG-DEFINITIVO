@@ -136,7 +136,6 @@ $comidas = obtenerComidasPorUsuario($idUsuario);
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Acciones</th>
                 </tr>
@@ -144,7 +143,6 @@ $comidas = obtenerComidasPorUsuario($idUsuario);
             <tbody>
                 <?php while ($comida = $comidas->fetch_assoc()) : ?>
                     <tr>
-                        <td><?= $comida['idComida'] ?></td>
                         <td><?= $comida['nombreComida'] ?></td>
                         <td>
                             <form method="POST" action="comidas.php" class="d-inline">
@@ -168,4 +166,5 @@ $comidas = obtenerComidasPorUsuario($idUsuario);
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>

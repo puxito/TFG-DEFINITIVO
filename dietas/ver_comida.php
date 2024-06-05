@@ -46,7 +46,7 @@ function exportarAExcel($idComida)
 
     $spreadsheet = new Spreadsheet();
     $sheet = $spreadsheet->getActiveSheet();
-    $sheet->setTitle('Dieta');
+    $sheet->setTitle('Comida');
 
     // Definir estilos para los títulos
     $headerStyleArray = [
@@ -96,7 +96,7 @@ function exportarAExcel($idComida)
 
     // Escribir archivo Excel
     $writer = new Xlsx($spreadsheet);
-    $fileName = 'Dieta_' . $idComida . '.xlsx';
+    $fileName = 'Comida' . $idComida . '.xlsx';
     $filePath = '../exportdietas' . $idComida . '.xlsx'; 
 
     $writer->save($filePath);

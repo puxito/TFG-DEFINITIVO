@@ -13,7 +13,7 @@ function editardatos() {
     document.getElementById("save-btn").style.display = "inline-block";
 }
 
-
+// CALENDARIO DEL DEMONIO
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#start').val(info.dateStr);
         },
         eventClick: function(info) {
-            var eventId = info.event.id; // Obtiene el ID del evento
+            var eventId = info.event.id; 
             if (confirm('¿Seguro que quieres eliminar este evento?')) {
                 $.ajax({
                     url: '../dietas/quitarDietas.php',
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     data: { id: eventId },
                     success: function(response) {
                         if (response === 'success') {
-                            info.event.remove(); // Elimina el evento del calendario
+                            info.event.remove(); 
                             alert('Evento eliminado correctamente.');
                         } else {
                             alert('No se ha podido eliminar el evento.');

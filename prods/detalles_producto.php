@@ -8,15 +8,12 @@ $conn = conectarBBDD();
 if (isset($_GET['idProducto'])) {
     $idProducto = $_GET['idProducto'];
 
-    // Aquí deberías realizar la consulta a la base de datos para obtener los detalles del producto
-    // Esto es solo un ejemplo, debes adaptarlo a tu estructura de base de datos
     $consulta = "SELECT * FROM productos WHERE idProducto = ?";
     $stmt = $conn->prepare($consulta);
     $stmt->bind_param("i", $idProducto);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
-    // Verificar si se encontró el producto
     if ($resultado->num_rows > 0) {
         $producto = $resultado->fetch_assoc();
 

@@ -7,17 +7,14 @@ $conn = conectarBBDD();
 
 sesionN0();
 
-// Obtener la lista de categorías
 $sql_categorias = "SELECT idCategoria, nombreCategoria FROM categorias";
 $stmt_categorias = $conn->prepare($sql_categorias);
 $stmt_categorias->execute();
 $resultado_categorias = $stmt_categorias->get_result();
 $categorias = $resultado_categorias->fetch_all(MYSQLI_ASSOC);
 
-// Verificar si se solicita ver favoritos
 $verFavoritos = isset($_GET['favoritos']) && $_GET['favoritos'] == 'true';
 
-// Si el usuario quiere ver sus favoritos
 if ($verFavoritos) {
     $idUsuario = obtenerIDUsuario();
     $consultaprod = "SELECT p.*
@@ -26,15 +23,12 @@ if ($verFavoritos) {
                      WHERE f.idUsuarioFK = ?";
     $preparada = $conn->prepare($consultaprod);
 
-    // Control en la preparación
     if ($preparada === false) {
         die("Error en la preparación: " . $conn->error);
     }
 
-    // Vincular el parámetro de ID de usuario
     $preparada->bind_param("i", $idUsuario);
 } else {
-    // Filtrar productos por categoría si se selecciona una categoría
     $consulta_condicional = "";
     if (isset($_GET['categoria'])) {
         $categoria_seleccionada = $_GET['categoria'];
@@ -43,29 +37,23 @@ if ($verFavoritos) {
         }
     }
 
-    // Sacar la consulta
     $consultaprod = "SELECT * FROM productos" . $consulta_condicional;
     $preparada = $conn->prepare($consultaprod);
 
-    // Control en la preparación
     if ($preparada === false) {
         die("Error en la preparación: " . $conn->error);
     }
 
-    // Vincular parámetros si hay una categoría seleccionada
     if (isset($categoria_seleccionada) && $categoria_seleccionada != 'all') {
         $preparada->bind_param("i", $categoria_seleccionada);
     }
 }
 
-// Ejecutar la consulta
 $preparada->execute();
 
-// Obtener los resultados
 $resultado = $preparada->get_result();
 $registros = $resultado->fetch_all(MYSQLI_ASSOC);
 
-// Control en la ejecución
 if ($registros === false) {
     die("Error en la ejecución: " . $conn->error);
 }
@@ -103,7 +91,6 @@ if (isset($_POST['toggleFavorito'])) {
             echo json_encode(['error' => 'Error al eliminar el producto de favoritos']);
         }
     } else {
-        // El producto no está en favoritos, agregarlo
         $sql_agregar = "INSERT INTO favoritos (idUsuarioFK, idProductoFK) VALUES (?, ?)";
         $stmt_agregar = $conn->prepare($sql_agregar);
         $stmt_agregar->bind_param("ii", $idUsuario, $idProducto);
@@ -225,29 +212,29 @@ if (isset($_POST['toggleFavorito'])) {
     </div>
 
     <div class="container">
-    <div id="producto" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <?php foreach ($registros as $registro) : ?>
-            <div class="col">
-                <div class="card">
-                    <div class="card-shadow-sm">
-                        <img src="<?php echo $registro['imgProducto']; ?>" class="card-img-top" alt="Imagen de <?php echo $registro['nombreProducto']; ?>">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $registro['nombreProducto']; ?></h5>
-                            <div class="button-container">
-                                <button class="btn btn-primary detalle-btn" data-producto-id="<?php echo $registro['idProducto']; ?>" data-bs-toggle="modal" data-bs-target="#detallesModal">Detalles</button>
-                                <form class="favorite-form" data-producto-id="<?php echo $registro['idProducto']; ?>">
-                                    <button type="submit" class="btn btn-primary fav-btn">
-                                        <img src="../media/iconos/<?php echo in_array($registro['idProducto'], $favoritos) ? 'remfav' : 'addfav'; ?>.png" alt="<?php echo in_array($registro['idProducto'], $favoritos) ? 'Eliminar favorito' : 'Agregar favorito'; ?>">
-                                    </button>
-                                </form>
+        <div id="producto" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <?php foreach ($registros as $registro) : ?>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-shadow-sm">
+                            <img src="<?php echo $registro['imgProducto']; ?>" class="card-img-top" alt="Imagen de <?php echo $registro['nombreProducto']; ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $registro['nombreProducto']; ?></h5>
+                                <div class="button-container">
+                                    <button class="btn btn-primary detalle-btn" data-producto-id="<?php echo $registro['idProducto']; ?>" data-bs-toggle="modal" data-bs-target="#detallesModal">Detalles</button>
+                                    <form class="favorite-form" data-producto-id="<?php echo $registro['idProducto']; ?>">
+                                        <button type="submit" class="btn btn-primary fav-btn">
+                                            <img src="../media/iconos/<?php echo in_array($registro['idProducto'], $favoritos) ? 'remfav' : 'addfav'; ?>.png" alt="<?php echo in_array($registro['idProducto'], $favoritos) ? 'Eliminar favorito' : 'Agregar favorito'; ?>">
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
     <!-- Modal de Detalles -->
     <div class="modal fade" id="detallesModal" tabindex="-1" aria-labelledby="detallesModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -256,9 +243,7 @@ if (isset($_POST['toggleFavorito'])) {
                     <h5 class="modal-title" id="detallesModalLabel">Detalles del Producto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="detallesModalBody">
-                    <!-- Aquí se cargarán dinámicamente los detalles del producto mediante AJAX -->
-                </div>
+                <div class="modal-body" id="detallesModalBody"></div>
             </div>
         </div>
     </div>
@@ -274,7 +259,7 @@ if (isset($_POST['toggleFavorito'])) {
                 event.preventDefault();
                 var idProducto = $(this).data("producto-id");
                 $.ajax({
-                    url: "productos.php", // Cambia esto por la ruta real
+                    url: "productos.php",
                     type: "POST",
                     data: {
                         toggleFavorito: true,
@@ -284,10 +269,8 @@ if (isset($_POST['toggleFavorito'])) {
                     success: function(response) {
                         alert(response.message);
                         if (response.action === 'added') {
-                            // Cambia el icono o estilo para reflejar que es favorito
                             $(this).find("img").attr("src", "../media/iconos/remfav.png");
                         } else if (response.action === 'removed') {
-                            // Cambia el icono o estilo para reflejar que ya no es favorito
                             $(this).find("img").attr("src", "../media/iconos/addfav.png");
                         }
                     }.bind(this),
@@ -298,22 +281,18 @@ if (isset($_POST['toggleFavorito'])) {
             });
         });
         $(document).ready(function() {
-            // Manejar clic en el botón "Detalles"
             $(".detalle-btn").on("click", function(event) {
                 event.preventDefault();
                 var idProducto = $(this).data("producto-id");
-                // Realizar una solicitud AJAX para obtener los detalles del producto
                 $.ajax({
-                    url: "detalles_producto.php", // Ruta al script que obtiene los detalles del producto
+                    url: "detalles_producto.php",
                     type: "GET",
                     data: {
                         idProducto: idProducto
                     },
                     dataType: 'html',
                     success: function(response) {
-                        // Insertar los detalles del producto en el cuerpo del modal
                         $("#detallesModalBody").html(response);
-                        // Mostrar el modal
                         $("#detallesModal").modal("show");
                     },
                     error: function(xhr, status, error) {

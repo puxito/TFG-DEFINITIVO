@@ -6,7 +6,7 @@ include "../php/errores.php";
 sesionN1();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar si se ha enviado una imagen nueva
+
     if (isset($_FILES["imagenProducto"]) && $_FILES["imagenProducto"]["error"] === UPLOAD_ERR_OK) {
         $imagenProducto = $_FILES["imagenProducto"];
 
@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
     } else {
-        // Si no se ha enviado una imagen nueva, mantener la imagen actual
+
         if (isset($_POST["imagen_actual"])) {
             $ruta_imagen_actualizada = $_POST["imagen_actual"];
         } else {
-            $ruta_imagen_actualizada = null; // Otra opción sería establecerla en la ruta de una imagen predeterminada
+            $ruta_imagen_actualizada = null;
         }
     }
 
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: ../cruds/crud_productos.php");
     exit();
 } else {
-    // Si no es una solicitud POST, redirigir o manejar el error según corresponda
+    
     header("Location: ../error.php?mensaje=" . urlencode("Acceso no autorizado."));
     exit();
 }

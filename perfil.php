@@ -145,11 +145,6 @@ function obtenerComidasUsuario($idUsuario)
             ?>
         </div>
     </nav>
-
-    <!-- -------------------------- -->
-    <!-- T I T U L O    P E R F I L -->
-    <!-- ----------------------------->
-
     <section class="profile-section">
         <article class="profile-article">
             <h2>Perfil de <?php echo $datosUsuario['nombreUsuario']; ?></h2>
@@ -197,7 +192,6 @@ function obtenerComidasUsuario($idUsuario)
                 <input type="hidden" name="idUsuario" value="<?php echo $idUsuario; ?>">
             </form>
         </article>
-            
         <!-- DATOS PERSONALES -->
         <article class="profile-article">
             <h2>Datos Personales</h2>
@@ -218,7 +212,6 @@ function obtenerComidasUsuario($idUsuario)
             <div id='calendar' class="mt-2 mb-4 p-3 border rounded bg-light shadow-sm"></div>
         </div>
     </div>
-
     <!-- MODAL AGREGAR EVENTOS -->
     <div class="modal fade" id="modalAgregarEvento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -258,8 +251,6 @@ function obtenerComidasUsuario($idUsuario)
             </div>
         </div>
     </div>
-
-
     <script src="../scripts/funciones.js"></script>
 </body>
 

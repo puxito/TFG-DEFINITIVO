@@ -109,7 +109,7 @@ function sesionN2()
 
     // Verificar si el usuario ha iniciado sesión
     if (!isset($_SESSION["correoElectronicoUsuario"])) {
-        // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
+
         header("Location: ../php/login.php");
         exit();
     }
@@ -129,100 +129,9 @@ function sesionN2()
     $stmt->close();
     $conn->close();
 
-    // Verificar si el usuario es administrador (idRolFK = 1)
     if ($rol != 1) {
-        // El usuario no es administrador, redirigir a una página de acceso denegado
+
         header("Location:../php/denegado.php");
-        exit();
-    }
-}
-
-// SESIONES PARA USUARIOS ADMINISTRADORES
-function sesionN3()
-{
-    session_start();
-
-    // Salir de la sesión si se ha enviado la solicitud 'salir'
-    if (isset($_REQUEST['cerses'])) {
-        session_destroy();
-        header("Location: login.php");
-        exit();
-    }
-
-    if (isset($_GET['cerses']) && $_GET['cerses'] == 'true') {
-        echo "<script>alert('Tu sesión ha sido cerrada.');</script>";
-    }
-
-    // Verificar si el usuario ha iniciado sesión
-    if (!isset($_SESSION["correoElectronicoUsuario"])) {
-        // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
-        header("Location: login.php");
-        exit();
-    }
-
-
-    // VERIFICAR USUARIO ADMINISTRADOR
-    $conn = conectarBBDD();
-    $correoElectronicoUsuario = $_SESSION["correoElectronicoUsuario"];
-    $sql = "SELECT idRolFK FROM usuarios WHERE correoElectronicoUsuario = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $correoElectronicoUsuario);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $fila = $result->fetch_assoc();
-    $rol = $fila["idRolFK"];
-    $stmt->close();
-    $conn->close();
-
-    // Verificar si el usuario es administrador (idRolFK = 1)
-    if ($rol != 1) {
-        // El usuario no es administrador, redirigir a una página de acceso denegado
-        header("Location:denegado.php");
-        exit();
-    }
-}
-
-// SESIONES PARA USUARIOS ADMINISTRADORES
-function sesionN4()
-{
-    session_start();
-
-    // Salir de la sesión si se ha enviado la solicitud 'salir'
-    if (isset($_REQUEST['cerses'])) {
-        session_destroy();
-        header("Location: php/login.php");
-        exit();
-    }
-
-    if (isset($_GET['cerses']) && $_GET['cerses'] == 'true') {
-        echo "<script>alert('Tu sesión ha sido cerrada.');</script>";
-    }
-
-    // Verificar si el usuario ha iniciado sesión
-    if (!isset($_SESSION["correoElectronicoUsuario"])) {
-        // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
-        header("Location: php/login.php");
-        exit();
-    }
-
-
-    // VERIFICAR USUARIO ADMINISTRADOR
-    $conn = conectarBBDD();
-    $correoElectronicoUsuario = $_SESSION["correoElectronicoUsuario"];
-    $sql = "SELECT idRolFK FROM usuarios WHERE correoElectronicoUsuario = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $correoElectronicoUsuario);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $fila = $result->fetch_assoc();
-    $rol = $fila["idRolFK"];
-    $stmt->close();
-    $conn->close();
-
-    // Verificar si el usuario es administrador (idRolFK = 1)
-    if ($rol != 1) {
-        // El usuario no es administrador, redirigir a una página de acceso denegado
-        header("Location: php/denegado.php");
         exit();
     }
 }
@@ -276,7 +185,7 @@ function inicioSesion($conn)
             exit();
         }
 
-        // Cerrar la sentencia
+
         $stmt->close();
     }
 }
@@ -304,12 +213,13 @@ function obtenerRutaImagenUsuario()
     return $ruta_imagen;
 }
 
+// Función para obtener el nombre del usuario actual
 function obtenerNombreUsuario()
 {
-    // Verificar si el usuario ha iniciado sesión
-    sesionN0(); // Cambia a la función de sesión correspondiente si es necesario
 
-    // Obtener el nombre del usuario actual desde la base de datos
+    sesionN0();
+
+
     $conn = conectarBBDD();
     $correoElectronicoUsuario = $_SESSION["correoElectronicoUsuario"];
     $sql = "SELECT nombreUsuario FROM usuarios WHERE correoElectronicoUsuario = ?";
@@ -326,7 +236,8 @@ function obtenerNombreUsuario()
 }
 
 
-function obtenerIDUsuario() {
+function obtenerIDUsuario()
+{
     sesionN0();
     $conn = conectarBBDD();
     $correoElectronicoUsuario = $_SESSION["correoElectronicoUsuario"];
@@ -380,34 +291,34 @@ function getAgeForCurrentUser()
     global $conn;
     sesionN1();
 
-    // Verificar si el correo electrónico del usuario está en la sesión
+
     if (isset($_SESSION['correoElectronicoUsuario'])) {
         $correoElectronicoUsuario = $_SESSION['correoElectronicoUsuario'];
 
-        // Preparar la consulta SQL para obtener la fecha de nacimiento del usuario
+
         $consulta = "SELECT fechaNacimientoUsuario FROM usuarios WHERE correoElectronicoUsuario = ?";
 
-        // Ejecutar la consulta
+
         $resultado = $conn->prepare($consulta);
         $resultado->bind_param("s", $correoElectronicoUsuario);
         $resultado->execute();
         $resultado->bind_result($fechaNacimiento);
 
-        // Verificar si se encontró algún resultado
+
         if ($resultado->fetch()) {
-            // Calcular la edad del usuario
+
             $fechaActual = new DateTime();
             $fechaNacimientoObj = new DateTime($fechaNacimiento);
 
-            // Comparar el mes y el día de nacimiento con el mes y el día actuales
+
             if (($fechaActual->format('m') < $fechaNacimientoObj->format('m')) ||
                 ($fechaActual->format('m') == $fechaNacimientoObj->format('m') &&
                     $fechaActual->format('d') < $fechaNacimientoObj->format('d'))
             ) {
-                // Si el mes actual es menor al mes de nacimiento, o si son iguales pero el día actual es menor, restamos un año
+
                 $edad = $fechaActual->format('Y') - $fechaNacimientoObj->format('Y') - 1;
             } else {
-                // Si el mes actual es mayor o igual al mes de nacimiento y el día actual es mayor o igual al día de nacimiento, no restamos un año
+
                 $edad = $fechaActual->format('Y') - $fechaNacimientoObj->format('Y');
             }
 
@@ -415,17 +326,18 @@ function getAgeForCurrentUser()
 
             return $edad;
         } else {
-            // No se encontró ningún resultado, manejar el error adecuadamente
+
             $resultado->close();
-            return "No se encontro la fecha"; // O algún otro valor que indique que no se encontró la fecha de nacimiento
+            return "No se encontro la fecha";
         }
     } else {
-        // El correo electrónico del usuario no está en la sesión, manejar el error adecuadamente
+
         return "No se encontró el correo electrónico del usuario en la sesión";
     }
 }
 
-function obtenerComidasPorUsuario($idUsuario) {
+function obtenerComidasPorUsuario($idUsuario)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM comidas WHERE idUsuarioFK = ?");
     $stmt->bind_param("i", $idUsuario);
@@ -433,31 +345,34 @@ function obtenerComidasPorUsuario($idUsuario) {
     return $stmt->get_result();
 }
 
-function agregarComida($nombreComida, $idUsuario) {
+function agregarComida($nombreComida, $idUsuario)
+{
     global $conn;
     $stmt = $conn->prepare("INSERT INTO comidas (nombreComida, idUsuarioFK) VALUES (?, ?)");
     $stmt->bind_param("si", $nombreComida, $idUsuario);
     return $stmt->execute();
 }
 
-function actualizarComida($idComida, $nombreComida) {
+function actualizarComida($idComida, $nombreComida)
+{
     global $conn;
     $stmt = $conn->prepare("UPDATE comidas SET nombreComida = ? WHERE idComida = ?");
     $stmt->bind_param("si", $nombreComida, $idComida);
     return $stmt->execute();
 }
 
-function eliminarComida($idComida) {
+function eliminarComida($idComida)
+{
     global $conn;
     $stmt = $conn->prepare("DELETE FROM comidas WHERE idComida = ?");
     $stmt->bind_param("i", $idComida);
     return $stmt->execute();
 }
 
-function obtenerEvento() {
+function obtenerEvento()
+{
     global $conn;
     $stmt = $conn->prepare("SELECT id FROM eventos WHERE idUsuario = ?");
     $stmt->bind_param("i", $idEvento);
     return $stmt->execute();
 }
-

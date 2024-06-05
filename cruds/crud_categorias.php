@@ -228,12 +228,11 @@ if (isset($_POST['eliminar'])) {
     </footer>
     <script>
         const reload = document.getElementById("reload");
-
+        // Recargar la página al hacer click en el botón de recargar
         reload.addEventListener("click", (_) => {
-            // el _ es para indicar la ausencia de parametros
             location.reload();
         });
-        // Función para filtrar usuarios por nombre
+        // Buscador de categorías
         $(document).ready(function() {
             $("#searchInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();

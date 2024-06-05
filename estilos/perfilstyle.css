@@ -20,17 +20,17 @@ header {
 
 header img {
   padding: 0px;
-  height: 80px; /* Reducido el tamaño del logo para evitar exceder la altura del encabezado */
+  height: 80px; 
   border-radius: 12px;
 }
 header div a img {
   
   margin: 10px;
-  height: 80px; /* Reducido el tamaño del logo para evitar exceder la altura del encabezado */
+  height: 80px; 
   border-radius: 5px;
 }
 
-/* Estilos del panel */
+
 .panel {
   margin: auto;
 }
@@ -42,7 +42,7 @@ header div a img {
   width: 200px;
   height: 75px;
   display: flex;
-  align-items: center; /* Añadido para centrar verticalmente el contenido del panel */
+  align-items: center; 
 }
 
 .fotoperfil {
@@ -61,7 +61,7 @@ header div a img {
 
 #menuPerfil {
   background-color: #f2f2f2;
-  margin-top: 7.5px; /* Reducido el margen para que el menú esté más cerca del panel */
+  margin-top: 7.5px;
   border: 1px solid rgba(0, 0, 0, 0.363);
   border-radius: 4px;
   width: 200px;
@@ -89,7 +89,7 @@ header div a img {
   background-color: #ccc;
 }
 
-/* Estilos del pie de página */
+
 footer {
   background-color: #343a40;
   color: #fff;
@@ -180,7 +180,7 @@ header .ini {
   margin-bottom: 70px; 
 }
 
-/* CALENDARIO*/
+
 .container {
   float: right;
   width: 40%;

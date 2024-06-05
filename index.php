@@ -110,8 +110,6 @@ $conn = conectarBBDD();
 
                 </section>
     </nav>
-
-
     <header>
         <!-- CARRUSEL IMAGENES  -->
         <header style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1">
@@ -129,9 +127,7 @@ $conn = conectarBBDD();
                 </div>
             </div>
         </header>
-
         <h1 class="display-3 mb-3 mt-5 text-center justify-content-center">FitFood</h1>
-
         <div class="container p-5">
             <div class=" justify-content-center">
 
@@ -139,7 +135,6 @@ $conn = conectarBBDD();
                     <div class="col-lg-5 col-md-4 col-sm-12 text-center m-1">
                         <img src="media/general/banerLateral.jpg" width="390" alt="Baner" class="img-fluid">
                     </div>
-
                     <div style="background-color:#ffffff6d; line-height: 1.9;" class="rounded col-lg-5 col-md-6 col-sm-12 text-center m-1 h6">
                         <p class="rounded m-1 p-2">"En FitFood, nos dedicamos a diseñar dietas personalizadas que se adaptan a tu estilo de vida
                             y objetivos de salud y bienestar. Nuestro equipo de expertos en nutrición crea planes alimenticios
@@ -154,9 +149,6 @@ $conn = conectarBBDD();
                 </div>
             </div>
         </div>
-
-
-
         <footer class="footer bg-dark text-light p-2 clearfix">
             <div class="container">
                 <div class="row m-3">
@@ -165,8 +157,6 @@ $conn = conectarBBDD();
                         <h5>Información de contacto</h5>
                         <p>Email: info@example.com</p>
                         <p>&copy; 2024 FitFood. Todos los derechos reservados.</p>
-
-
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <h5>Enlaces útiles</h5>
