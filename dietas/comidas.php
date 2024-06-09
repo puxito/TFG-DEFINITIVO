@@ -41,7 +41,7 @@ $comidas = obtenerComidasPorUsuario($idUsuario);
 
     <nav class="navbar navbar-expand-lg" style="background-color: #006691;">
         <div class="container-fluid">
-            <a href="index.php">
+            <a href="../index.php">
                 <img class="rounded" src="../media/logoancho.png" alt="logo" width="155">
             </a>
 
