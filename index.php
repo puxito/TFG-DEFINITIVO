@@ -6,7 +6,6 @@ require("php/funciones.php");
 $conn = conectarBBDD();
 
 
-//-------------SELECT------------//
 ?>
 
 
@@ -24,16 +23,11 @@ $conn = conectarBBDD();
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg" style="background-color: #006691;">
         <div class="container-fluid">
             <a href="index.php">
                 <img class="rounded" src="media/logoancho.png" alt="logo" width="155">
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item m-2">
